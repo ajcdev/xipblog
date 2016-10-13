@@ -973,13 +973,20 @@ class xipblog extends Module
 	    $this->InsertDummyData($xipblog_categories,'xipcategoryclass');
 	    $this->InsertDummyData($xipblog_posts,'xippostsclass');
 	    return true;
-	}	
+	}
 	public function hookdisplayAdminAfterHeader(){
-		$data = @Tools::file_get_contents('http://xpert-idea.com/promotion/promotion.php');
-		print $data;
-	}	
+
+		$controller = Tools::getValue("controller");
+		$controllers = array("Adminxippost","Adminxipcategory","Adminxipcomment","Adminxipimagetype"); 
+		if(!in_array($controller, $controllers))
+			return false;
+		$data = @Tools::file_get_contents('http://xpert-idea.com/promotion/promotion_top.php');
+		if(isset($data) && !empty($data)){
+			print $data;
+		}else{
+			$url = Context::getContext()->shop->getBaseURL().'modules/xipblog/views/templates/admin/xippost/helpers/form/';
+			$data = @Tools::file_get_contents($url.'promotion_top.php?url='.$url);
+			print $data;
+		}
+	}
 }
-
-// displayAdminListAfter
-
-
