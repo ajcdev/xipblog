@@ -1,6 +1,6 @@
 <div class="kr_blog_post_area single">
 	<div class="kr_blog_post_inner">
-		<article class="blog_post blog_post_{$xipblogpost.post_format}">
+		<article id="blog_post" class="blog_post blog_post_{$xipblogpost.post_format}">
 			<div class="blog_post_content">
 				<div class="blog_post_content_top">
 					<div class="post_thumbnail">
@@ -13,31 +13,26 @@
 						{elseif $xipblogpost.post_format == 'gallery'}
 							{include file="./post-gallery.tpl" gallery=$xipblogpost.gallery_lists imagesize="medium" class="{if $xipblogpost.gallery_lists|@count > 1 }carousel{/if}"}
 						{else}
-							<img class="img-responsive" src="{$xipblogpost.post_img_medium}" alt="{$xipblogpost.post_title}">
+							<img class="img-responsive" src="{$xipblogpost.post_img_large}" alt="{$xipblogpost.post_title}">
 						{/if}
-						<div class="post_meta_date">
-							{$xipblogpost.post_date|date_format:"<b>%e</b> <b>%b</b>"}
-						</div>
-					</div>
-					<div class="post_meta clearfix">
-						<div class="meta_author">
-							<i class="icon-user"></i>
-							<span>{l s='By' mod='xipblog'} {$xipblogpost.post_author_arr.firstname} {$xipblogpost.post_author_arr.lastname}</span>
-						</div>
-						<div class="meta_category">
-							<i class="icon-tag"></i>
-							<span>{$xipblogpost.category_default_arr.name}</span>
-						</div>
-						<div class="meta_comment">
-							<i class="icon-eye"></i>
-							<span>{l s='Views' mod='xipblog'} ({$xipblogpost.comment_count})</span>
-						</div>
 					</div>
 				</div>
-				<div class="blog_post_content_bottom">
+				<div class="post_content">
 					<h3 class="post_title">{$xipblogpost.post_title}</h3>
-					<div class="post_content">
-						{$xipblogpost.post_content}
+					<div class="post_meta clearfix">
+						<p class="meta_author">
+							{l s='Posted by ' mod='xipblog'}
+							<span>{$xipblogpost.post_author_arr.firstname} {$xipblogpost.post_author_arr.lastname}</span>
+						</p>
+						<p class="meta_date">
+							{$xipblogpost.post_date|date_format:"%b %dTH, %Y"}
+						</p>
+						<p class="meta_category">
+								<a href="{$xipblogpost.category_default_arr.link}">{$xipblogpost.category_default_arr.name}</a>
+						</p>
+					</div>
+					<div class="post_description">
+						<p>{$xipblogpost.post_content}</p>
 					</div>
 				</div>
 			</div>
