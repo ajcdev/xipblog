@@ -975,18 +975,30 @@ class xipblog extends Module
 	    return true;
 	}
 	public function hookdisplayAdminAfterHeader(){
-
+		// var_dump("I am admin Modules");
 		$controller = Tools::getValue("controller");
+		$configure = Tools::getValue("configure");
 		$controllers = array("Adminxippost","Adminxipcategory","Adminxipcomment","Adminxipimagetype"); 
-		if(!in_array($controller, $controllers))
-			return false;
-		$data = @Tools::file_get_contents('http://xpert-idea.com/promotion/promotion_top.php');
-		if(isset($data) && !empty($data)){
-			print $data;
+		if(in_array($controller, $controllers)){
+			$data = @Tools::file_get_contents('http://xpert-idea.com/promotion/promotion_top.php');
+			if(isset($data) && !empty($data)){
+				print $data;
+			}else{
+				$url = Context::getContext()->shop->getBaseURL().'modules/xipblog/views/templates/admin/xippost/helpers/form/';
+				$data = @Tools::file_get_contents($url.'promotion_top.php?url='.$url);
+				print $data;
+			}
+		}elseif ($controller == "AdminModules" && $configure == "xipblog") {
+			$data = @Tools::file_get_contents('http://xpert-idea.com/promotion/promotion_top.php');
+			if(isset($data) && !empty($data)){
+				print $data;
+			}else{
+				$url = Context::getContext()->shop->getBaseURL().'modules/xipblog/views/templates/admin/xippost/helpers/form/';
+				$data = @Tools::file_get_contents($url.'promotion_top.php?url='.$url);
+				print $data;
+			}
 		}else{
-			$url = Context::getContext()->shop->getBaseURL().'modules/xipblog/views/templates/admin/xippost/helpers/form/';
-			$data = @Tools::file_get_contents($url.'promotion_top.php?url='.$url);
-			print $data;
+			return false;
 		}
 	}
 }
