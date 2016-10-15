@@ -1,11 +1,17 @@
 # xipblog
 This is blog module for prestashop. It has many many amazing features. Standard, Gallery, Audio, Video post format available on this blog module. 
 
-#Child Modules
+# Child Modules
 
 If you can display xipblog posts on your theme, just installed bellow modules ....
 
 * <a target="_blank" href="https://github.com/xpert-idea/xipblogdisplayposts">xipblogdisplayposts</a>
+
+# Demo
+Please <a href="http://xpert-idea.com/prestashop/jakiro/demo/nine/en/">click here </a> to see the blog demo.
+
+# Documentation
+Please <a href="http://xpert-idea.com/prestashop/jakiro/demo/nine/en/">click here </a> to follow our youtube channel for the blog module documentation.
 
 # Important Notice
 If you are Theme author, you can use and include this Modules as free to build themes for sale.
