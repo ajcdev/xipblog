@@ -9,4 +9,4 @@ If you can display xipblog posts on your theme, just installed bellow modules ..
 
 # Who We Are
 
-We are author of themeforest, Please <a target="_blank" href="https://themeforest.net/user/xpert-idea/portfolio">click here</a> to see our profile . Also you can visit our website. http://xpert-idea.com/
+We are author of themeforest, Please <a href="https://themeforest.net/user/xpert-idea/portfolio?ref=xpert-idea">click here</a> to see our profile . Also you can visit our website. http://xpert-idea.com/
