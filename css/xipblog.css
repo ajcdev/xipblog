@@ -347,8 +347,28 @@ Blog module
 .blog_post:hover .slick-next{
   right: 30px;
 }
-
-
 .home_blog_post .post_thumbnail .post_format_items .embed-responsive-16by9{
 	padding-bottom: 52.00%;
+}
+.blog_post_content p.meta_author,.blog_post_content p.meta_date {
+    display: inline-block;
+    padding-right: 10px;
+}
+.blog_post_content p.meta_category {
+    display: inline-block;
+}
+.blog_post_content a.more {
+    float: right;
+}
+.home_blog_post h3.page-heading {
+    margin-bottom: 5px;
+}
+.row.home_blog_post_inner.carousel.slick-initialized.slick-slider {
+    margin-top: 30px;
+}
+.arrow_carrot-right:before {
+    content: ">";
+}
+.arrow_carrot-left:before {
+    content: "<";
 }
