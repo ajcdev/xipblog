@@ -112,6 +112,7 @@ class xipblog extends Module
     }
 	public function Register_Hooks()
 	{	
+        $this->registerHook("displayAdminAfterHeader");
 		if(isset($this->all_hooks)){
 			foreach ($this->all_hooks as $hook) {
         		$this->registerHook($hook);
@@ -121,6 +122,8 @@ class xipblog extends Module
 	}
 	public function UnRegister_Hooks()
 	{
+        $hook_idm = Module::getModuleIdByName("displayAdminAfterHeader");
+    	$this->unregisterHook((int)$hook_idm);
 		if(isset($this->all_hooks)){
 			foreach ($this->all_hooks as $hook) {
         		$hook_id = Module::getModuleIdByName($hook);
@@ -975,7 +978,6 @@ class xipblog extends Module
 	    return true;
 	}
 	public function hookdisplayAdminAfterHeader(){
-		// var_dump("I am admin Modules");
 		$controller = Tools::getValue("controller");
 		$configure = Tools::getValue("configure");
 		$controllers = array("Adminxippost","Adminxipcategory","Adminxipcomment","Adminxipimagetype"); 
