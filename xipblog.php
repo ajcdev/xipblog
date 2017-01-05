@@ -162,6 +162,11 @@ class xipblog extends Module
 	}
 	public function UnRegister_Tabs()
 	{
+		$parenttab_list_id = Tab::getIdFromClassName('Adminxipblogsetting');
+		if(isset($parenttab_list_id) && !empty($parenttab_list_id)){
+		 	$parenttabobj = new Tab($parenttab_list_id);
+	                $parenttabobj->delete();
+		}
 		$tabs_lists = array();
 			if(isset($this->all_tabs) && !empty($this->all_tabs))
 	        foreach($this->all_tabs as $tab_list){
